@@ -1,11 +1,12 @@
 {
   "name": "@defi-wonderland/gnosis-safe-proposor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Gnosis Safe helper for delegates",
   "main": "lib/propose-tx.js",
   "types": "lib/propose-tx.d.ts",
+  "bin": "./lib/propose-tx.js",
   "scripts": {
-    "start": "tsc && node index.ts",
+    "start": "ts-node ./src/propose-tx.ts",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.(js|ts)\"",
     "lint": "eslint src --ext .js,.ts",
@@ -30,12 +31,23 @@
     "url": "https://github.com/defi-wonderland/gnosis-safe-proposor/issues"
   },
   "homepage": "https://github.com/defi-wonderland/gnosis-safe-proposor#readme",
+  "dependencies": {
+    "axios": "0.27.2",
+    "bignumber.js": "9.1.0",
+    "eth-typed-data": "0.1.0-beta.0",
+    "ethereumjs-util": "7.1.5",
+    "ethers": "5.7.0",
+    "read": "1.0.7",
+    "yargs": "17.5.1"
+  },
   "devDependencies": {
+    "@types/read": "0.0.29",
+    "@types/yargs": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.30.7",
     "eslint": "8.20.0",
-    "eslint-plugin-jest": "26.6.0",
     "prettier": "2.7.1",
+    "ts-node": "10.9.1",
     "typescript": "4.7.4"
   },
   "files": [
