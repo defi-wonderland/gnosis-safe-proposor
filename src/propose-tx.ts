@@ -113,7 +113,7 @@ function getArguments() {
         type: 'string',
         alias: 'd',
         description: 'Transaction data',
-        default: '0x'
+        default: '0x',
       },
       value: {
         type: 'number',

@@ -1,6 +1,6 @@
 {
   "name": "@defi-wonderland/gnosis-safe-proposor",
-  "version": "1.0.0",
+  "version": "1.0.1-rc.0",
   "description": "Gnosis Safe helper for delegates",
   "main": "lib/propose-tx.js",
   "types": "lib/propose-tx.d.ts",
