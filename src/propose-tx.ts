@@ -3,7 +3,7 @@
 import EIP712Domain from 'eth-typed-data';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { ethers } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 import { parseAddress, parsePrivateKey, parseNumber, promiseRead, createSafeTx, safeSign } from './utils/misc';
 import { SUPPORTED_CHAINS, getLatestNonce, estimateTransaction, proposeTx } from './utils/gnosis';
 
@@ -22,16 +22,16 @@ import { SUPPORTED_CHAINS, getLatestNonce, estimateTransaction, proposeTx } from
 
   const safeDomain = new EIP712Domain({ verifyingContract: safe, chainId });
   const SafeTx = createSafeTx(safeDomain);
-  const baseTx = { to, data, value, operation };
+  const baseTx = { to, data, value: value.toString(), operation };
 
-  console.log('Fetching current safe nonce...');
+  console.debug('Fetching current safe nonce...');
 
   // get default nonce, taking queued txs into account
   const latestNonce = await getLatestNonce(safe, chainId);
   const defaultNonce = String(latestNonce ? latestNonce + 1 : 0);
   // let user override default nonce
   const nonce = parseNumber(await promiseRead({ prompt: 'Transaction nonce', default: defaultNonce }), 'nonce');
-  console.log('');
+  console.debug('');
 
   // Let the Safe service estimate the tx
   const { safeTxGas } = await estimateTransaction(safe, chainId, baseTx);
@@ -61,17 +61,17 @@ import { SUPPORTED_CHAINS, getLatestNonce, estimateTransaction, proposeTx } from
     signature,
   };
 
-  console.log('Transaction Details');
-  console.log('-------------------');
-  console.log(`Delegator: ${signerAddress}`);
-  console.log(`Safe: ${safe}`);
-  console.log(`Chain ID: ${chainId}`);
-  console.log(`To: ${to}`);
-  console.log(`Data: ${data}`);
-  console.log(`Value: ${value}`);
-  console.log(`Nonce: ${nonce}`);
-  console.log(`Operation: ${operation === 0 ? 'Call' : 'Delegate call'}`);
-  console.log('');
+  console.info('Transaction Details');
+  console.info('-------------------');
+  console.info(`Delegator: ${signerAddress}`);
+  console.info(`Safe: ${safe}`);
+  console.info(`Chain ID: ${chainId}`);
+  console.info(`To: ${to}`);
+  console.info(`Data: ${data}`);
+  console.info(`Value: ${value.toString()}`);
+  console.info(`Nonce: ${nonce}`);
+  console.info(`Operation: ${operation === 0 ? 'Call' : 'Delegate call'}`);
+  console.info('');
 
   // wait for user confirmation before sending tx proposal
   const confirmation = await promiseRead({ prompt: 'Confirm', default: 'Y' });
@@ -116,10 +116,11 @@ function getArguments() {
         default: '0x',
       },
       value: {
-        type: 'number',
+        type: 'string',
         alias: 'v',
         description: 'Transaction value',
         default: 0,
+        coerce: BigNumber.from,
       },
       operation: {
         type: 'number',
