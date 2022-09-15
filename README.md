@@ -25,8 +25,10 @@ Address of the Gnosis Safe.
 ### `--to` or `-t` (Required)
 Transaction target address.
 
-### `--data` or `-d` (Required)
+### `--data` or `-d`
 Transaction data.
+
+Default: `0x`
 
 ### `--value` or `-v`
 Transaction value. It must be a number.

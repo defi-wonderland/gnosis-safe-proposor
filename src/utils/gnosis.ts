@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const CHAIN_PREFIXES = {
   1: '',
-  4: 'rinkeby.',
+  4: '.rinkeby',
 };
 
 export const SUPPORTED_CHAINS = Object.keys(CHAIN_PREFIXES).map(Number);
@@ -51,6 +51,7 @@ export async function getLatestNonce(safe: string, chainId: number): Promise<num
     const results = resp.data.results;
     return results.length ? results[0].nonce : undefined;
   } catch (e) {
+    console.log(e);
     throw `Failed to fetch multisig latest nonce: ${JSON.stringify(e.response.data)}`;
   }
 }
