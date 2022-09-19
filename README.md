@@ -8,6 +8,8 @@ The private key of the delegate will be requested in runtime as a masked input. 
 
 Inspired by [rmeissner's gist](https://gist.github.com/rmeissner/0fa5719dc6b306ba84ee34bebddc860b).
 
+![@defi-wonderland:gnosis-safe-proposor](https://user-images.githubusercontent.com/84932007/191055124-1e635276-dc9a-40ab-9359-feeea29c5ac0.gif)
+
 > :warning: This project was made in a couple of hours for internal usage. Please don't bully us if the code is not the prettiest, instead, submit PR 🙈
 
 ## Usage
