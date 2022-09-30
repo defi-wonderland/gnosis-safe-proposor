@@ -28,7 +28,7 @@ import { SUPPORTED_CHAINS, getLatestNonce, estimateTransaction, proposeTx } from
 
   // get default nonce, taking queued txs into account
   const latestNonce = await getLatestNonce(safe, chainId);
-  const defaultNonce = String(latestNonce ? latestNonce + 1 : 0);
+  const defaultNonce = String(latestNonce === undefined ? 0 : latestNonce + 1);
   // let user override default nonce
   const nonce = parseNumber(await promiseRead({ prompt: 'Transaction nonce', default: defaultNonce }), 'nonce');
   console.debug('');
