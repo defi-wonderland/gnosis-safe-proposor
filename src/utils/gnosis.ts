@@ -12,7 +12,7 @@ export async function estimateTransaction(safe: string, chainId: number, tx: any
   try {
     const chainPrefix = CHAIN_PREFIXES[chainId];
     const resp = await axios.post(
-      `https://safe-relay${chainPrefix}.gnosis.io/api/v2/safes/${safe}/transactions/estimate/`,
+      `https://safe-transaction${chainPrefix}.gnosis.io/api/v1/safes/${safe}/multisig-transactions/estimations/`,
       tx,
     );
     return resp.data;
