@@ -40,10 +40,11 @@ Transaction value. It must be a number.
 Chain ID. It must be one of the following numbers:
 * `1` (Ethereum mainnet)
 * `4` (Rinkeby)
+* `5` (Goerli)
 
 Default: `1`
 
-Adding new chains should be extremely easy as long as it is supported by: `https://safe-relay.gnosis.io/` and `https://safe-relay.gnosis.pm` (read [gnosis.ts](https://github.com/defi-wonderland/gnosis-safe-proposor/blob/main/src/utils/gnosis.ts))
+Adding new chains should be extremely easy as long as it is supported by: `https://safe-transaction.gnosis.io/` (read [gnosis.ts](https://github.com/defi-wonderland/gnosis-safe-proposor/blob/main/src/utils/gnosis.ts))
 
 ### `--operation` or `-o`
 
