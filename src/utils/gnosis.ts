@@ -3,6 +3,7 @@ import axios from 'axios';
 const CHAIN_PREFIXES = {
   1: '',
   4: '.rinkeby',
+  5: '.goerli',
 };
 
 export const SUPPORTED_CHAINS = Object.keys(CHAIN_PREFIXES).map(Number);

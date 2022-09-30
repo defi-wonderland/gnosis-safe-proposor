@@ -40,6 +40,7 @@ Transaction value. It must be a number.
 Chain ID. It must be one of the following numbers:
 * `1` (Ethereum mainnet)
 * `4` (Rinkeby)
+* `5` (Goerli)
 
 Default: `1`
 
