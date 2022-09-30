@@ -48,7 +48,7 @@ export async function getLatestNonce(safe: string, chainId: number): Promise<num
         },
       },
     );
-    return resp.data.results.find(result => result.nonce)?.nonce;
+    return resp.data.results.find(result => result.nonce !== undefined)?.nonce;
   } catch (e) {
     throw `Failed to fetch multisig latest nonce: ${e?.response?.data ? JSON.stringify(e.response.data) : e.toString()}`;
   }
