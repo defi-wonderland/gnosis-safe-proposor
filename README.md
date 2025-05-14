@@ -2,6 +2,14 @@
 
 # Gnosis Safe Proposor
 
+> ⚠️ **DEPRECATED – DO NOT USE**
+>
+> This repository is no longer maintained and is **deprecated**.
+>
+> It may contain **outdated, insecure, or vulnerable code** and should **not** be used in production or as a dependency in any project.
+>
+> The repository is retained solely for historical reference. No support, updates, or security patches will be provided.
+
 Just the right tool to easily propose transactions to a [Gnosis Safe](https://gnosis-safe.io/).
 
 The private key of the delegate will be requested in runtime as a masked input. There is no need to have it in a `.env` file, nor will it be printed to the console.
